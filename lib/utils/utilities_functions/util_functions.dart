@@ -38,6 +38,7 @@ class UtilFunctions {
       ),
       enableSwitchAnimation: enabled,
       child: child ?? const SizedBox(),
+
     );
   }
 }
