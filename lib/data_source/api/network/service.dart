@@ -63,7 +63,6 @@ class ApiService implements ApiMethods {
     Function(ApiResponse<T> responseStatus) callBack,
     Function(Map<String, dynamic>)? fromJson,
   ) {
-    print("API Response: ${response.body}");
     dynamic responseJson = jsonDecode(response.body);
 
     switch (response.statusCode) {

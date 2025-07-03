@@ -7,7 +7,7 @@ class EmployeeRepository {
   final ApiService _apiService = ApiService();
 
   Future<void> getEmployee(
-    Function(ApiResponse<Employee> response) callBack, {
+    Function(ApiResponse<List<Employee>> response) callBack, {
     int page = 1,
   }) {
     return _apiService.callGetMethod(

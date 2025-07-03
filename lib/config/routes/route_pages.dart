@@ -1,4 +1,6 @@
 import 'package:assesment/config/routes/route_names.dart';
+import 'package:assesment/screens/home/logic/binding.dart';
+import 'package:assesment/screens/home/view/screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import '../../screens/splash/logic/binding.dart';
 import '../../screens/splash/view/screen.dart';
@@ -14,8 +16,8 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.homeRoute,
-      page: () => SplashScreen(),
-      binding: SplashBinding(),
+      page: () => HomeScreen(),
+      binding: HomeBinding(),
     ),
   ];
 }

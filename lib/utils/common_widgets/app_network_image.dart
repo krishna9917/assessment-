@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '../../config/resources/colors/app_colors.dart';
 import '../../config/resources/constant/assets.dart';
 
-class ApiImage extends StatelessWidget {
-  const ApiImage({
+class AppNetworkImage extends StatelessWidget {
+  const AppNetworkImage({
     super.key,
     this.uri = "",
     this.height,
