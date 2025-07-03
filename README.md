@@ -1,3 +1,8 @@
+# How to Run the App
+
+By using this link https://we.tl/t-l1q3wjXxj3 you can simply download apk and can interact with the
+result of this code.
+
 # State Management
 
 This project uses GetX for state management. Given the small scale of the project,
