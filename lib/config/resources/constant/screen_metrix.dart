@@ -11,7 +11,8 @@ double wpx(px) {
 }
 
 double fpx(px) {
-  return px.sp;
+  int result = px;
+  return result.sp;
 }
 
 double rpx(px) {

@@ -13,7 +13,9 @@ class EmployeeRepository {
     return _apiService.callGetMethod(
       "${ApiEndPoints.users}?_page=$page&_limit=10",
       callBack,
-      fromJson: Employee.fromJson,
+      fromJson: (json) => (json as List<dynamic>)
+          .map((item) => Employee.fromJson(item as Map<String, dynamic>))
+          .toList(),
     );
   }
 }

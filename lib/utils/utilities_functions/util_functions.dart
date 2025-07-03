@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -38,7 +37,6 @@ class UtilFunctions {
       ),
       enableSwitchAnimation: enabled,
       child: child ?? const SizedBox(),
-
     );
   }
 }

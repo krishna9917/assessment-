@@ -7,5 +7,7 @@ abstract class AppStringKey {
   static const String noDataFound = "noDataFound";
   static const String oops ="Oops!!";
   static const String noEmployeeFound = "noEmployeeFound";
+  static const String catchMeByGivenDetails  = "catchMeByGivenDetails";
+  static const String lastOpened = "lastOpened";
 
 }

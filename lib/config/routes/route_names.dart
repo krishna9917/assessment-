@@ -1,6 +1,8 @@
 class AppRoutes {
-  static const initialRoute = '/';
-  static const homeRoute ="/home";
+  static const initial = '/';
+  static const home = "/home";
+  static const employeeDetail = "/detail";
+
 
 
 }

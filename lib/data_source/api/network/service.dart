@@ -27,7 +27,7 @@ class ApiService implements ApiMethods {
     String endPoint,
     Function(ApiResponse<T> responseStatus) callBack, {
     bool showProgress = false,
-    Function(Map<String, dynamic>)? fromJson,
+    T Function(dynamic)? fromJson,
   }) async {
     try {
       callBack(ApiResponse.loading());
@@ -43,7 +43,7 @@ class ApiService implements ApiMethods {
             headers: getHeaders(), // Add headers here
           )
           .timeout(Duration(seconds: 10));
-      returnResponse(response, callBack, fromJson);
+      returnResponse(response, callBack, fromJson!);
     } on SocketException {
       callBack(ApiResponse.error(AppStringKey.noInternet.tr));
       throw InternetException();
@@ -61,15 +61,13 @@ class ApiService implements ApiMethods {
   returnResponse<T>(
     http.Response response,
     Function(ApiResponse<T> responseStatus) callBack,
-    Function(Map<String, dynamic>)? fromJson,
+    T Function(dynamic) fromJson,
   ) {
     dynamic responseJson = jsonDecode(response.body);
-
     switch (response.statusCode) {
       case 200:
-        if (fromJson != null) {
-          callBack(ApiResponse.completed(fromJson(responseJson)));
-        }
+        callBack(ApiResponse.completed(fromJson(responseJson)));
+        break;
       case 400:
         callBack(ApiResponse.error(responseJson['message']));
         throw BadRequest(responseJson['message']);

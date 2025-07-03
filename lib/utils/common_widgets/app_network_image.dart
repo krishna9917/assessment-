@@ -14,7 +14,7 @@ class AppNetworkImage extends StatelessWidget {
     this.tempImage = AppAssets.logo,
     this.borderRadius,
     this.circularRadius,
-    this.tempPadding
+    this.tempPadding,
   });
 
   final String tempImage;
@@ -53,46 +53,50 @@ class AppNetworkImage extends StatelessWidget {
                   ),
                 ),
               )
-            : CachedNetworkImage(
-                httpHeaders: const {"Access-Control-Allow-Origin": "*"},
-                imageUrl: uri,
-                height: height,
-                width: width,
-                fit: fit,
-                placeholder: (context, url) {
-                  return UtilFunctions.shimmer(
-                    enabled: true,
-                    child: Container(
-                      color: AppColors.primaryShade900,
-                      height: height,
-                      width: width,
-                    ),
-                  );
-                },
-                imageBuilder: (context, imageProvider) => Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(image: imageProvider, fit: fit),
-                  ),
-                ),
-                errorWidget: (context, url, error) {
-                  return Padding(
-                    padding: EdgeInsets.all(tempPadding ?? 0),
-                    child: Container(
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        borderRadius:
-                            borderRadius ??
-                            BorderRadius.circular(circularRadius ?? 0),
-                      ),
-                      child: Image.asset(
-                        tempImage,
+            : ClipRRect(
+                borderRadius:
+                    borderRadius ?? BorderRadius.circular(circularRadius ?? 0),
+                child: CachedNetworkImage(
+                  httpHeaders: const {"Access-Control-Allow-Origin": "*"},
+                  imageUrl: uri,
+                  height: height,
+                  width: width,
+                  fit: fit,
+                  placeholder: (context, url) {
+                    return UtilFunctions.shimmer(
+                      enabled: true,
+                      child: Container(
+                        color: AppColors.primaryShade900,
                         height: height,
                         width: width,
-                        fit: BoxFit.fitHeight,
                       ),
+                    );
+                  },
+                  imageBuilder: (context, imageProvider) => Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(image: imageProvider, fit: fit),
                     ),
-                  );
-                },
+                  ),
+                  errorWidget: (context, url, error) {
+                    return Padding(
+                      padding: EdgeInsets.all(tempPadding ?? 0),
+                      child: Container(
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              borderRadius ??
+                              BorderRadius.circular(circularRadius ?? 0),
+                        ),
+                        child: Image.asset(
+                          tempImage,
+                          height: height,
+                          width: width,
+                          fit: BoxFit.fitHeight,
+                        ),
+                      ),
+                    );
+                  },
+                ),
               ),
       ],
     );
