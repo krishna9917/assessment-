@@ -1,16 +1,17 @@
-# assesment
+# State Management
 
-A new Flutter project.
+This project uses GetX for state management. Given the small scale of the project,
+I chose GetX over BLoC for its simplicity and ease of use in lightweight applications.
+While BLoC is powerful, it was not the most suitable choice for this particular use case.
 
-## Getting Started
+# Project Structure
 
-This project is a starting point for a Flutter application.
+I have followed a clean and well-structured directory layout to keep the codebase organized and
+maintainable.
+This structure allows for scalability if the project grows in the future.
 
-A few resources to get you started if this is your first Flutter project:
+# Development Notes
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+I didn’t encounter major challenges during development. While there’s always room for improvement,
+time constraints and other responsibilities
+related to ongoing projects limited further refinements.
